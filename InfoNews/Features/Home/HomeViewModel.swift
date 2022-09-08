@@ -9,34 +9,41 @@ import Foundation
 
 
 protocol HomeProtocol: HomeViewModelProtocol {
-    func teste()
+    func getNewsRequest()
 }
 
 class HomeViewModel {
     
     // MARK: - Public properties
     
-    var onChangeSections: Completion<[TableSectionProtocol]>?
+    var onChangeSections: (([TableSectionProtocol]) -> Void)?
     
     // MARK: - Private properties
     
     private lazy var sectionBuilder: HomeTableViewCellBuilderProtocol = HomeTableViewCellBuilder()
+    private var getNewsUseCase: GetNewsUseCaseProtocol
     
     // MARK: - Init
     
-    init() {
-        
+    init(getNewsUseCase: GetNewsUseCaseProtocol) {
+        self.getNewsUseCase = getNewsUseCase
     }
     
-    func teste() {
-        let new = News(title: "Toronto Film Festival: Awards season begins as Hollywood stars arrive", description: "A Knives Out sequel and a Harry Styles romance drama are among the highlights this year.", author: "BBC News", urlToImage: "https://ichef.bbci.co.uk/news/1024/branded_news/F67B/production/_126599036_gettyimages-1418979612.jpg")
-        sectionBuilder.appendNewsSection(with: [new])
-        onChangeSections?(sectionBuilder.builder())
-    }
 }
 
 // MARK: - HomeProtocol
 
-extension HomeViewModel: HomeProtocol {
+extension HomeViewModel: HomeProtocol {    
     
+    func getNewsRequest() {
+        getNewsUseCase.execute(
+            success: { [weak self] news in
+                self?.sectionBuilder.appendNewsSection(with: news.articles)
+                self?.onChangeSections?(self?.sectionBuilder.builder() ?? [])
+            },
+            failure: { [weak self] error in
+                print(error)
+            }
+        )
+    }
 }

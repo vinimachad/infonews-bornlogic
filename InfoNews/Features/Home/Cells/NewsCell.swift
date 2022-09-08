@@ -12,7 +12,7 @@ import UIKit
 protocol NewsCellViewModelProtocol: CellViewModelProtocol {
     var title: String { get }
     var description: String { get }
-    var author: String { get }
+    var author: String? { get }
     var urlToImage: String { get }
 }
 
@@ -47,8 +47,9 @@ class NewsCell: UITableViewCell, CellProtocol {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
         resumeLabel.text = viewModel.description
-        authorsLabel.text = "by \(viewModel.author)"
         coverImageView.imageBy(urlString: viewModel.urlToImage)
+        guard let author = viewModel.author else { return }
+        authorsLabel.text = "by \(author)"
     }
 }
 

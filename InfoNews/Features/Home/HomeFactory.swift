@@ -11,7 +11,8 @@ import UIKit
 enum HomeFactory: ControllerFactoryProtocol {
     
     static func createController() -> UIViewController {
-        let viewModel = HomeViewModel()
+        let useCase = GetNewsUseCase(api: NewsRoute())
+        let viewModel = HomeViewModel(getNewsUseCase: useCase)
         return HomeController(viewModel: viewModel)
     }
 }

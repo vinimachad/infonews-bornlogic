@@ -8,8 +8,5 @@
 import Foundation
 
 struct News: Decodable {
-    var title: String
-    var description: String
-    var author: String
-    var urlToImage: String
+    var articles: [Article]
 }

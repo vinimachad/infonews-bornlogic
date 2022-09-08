@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeTableViewCellBuilderProtocol: TableViewCellBuilderProtocol {
-    func appendNewsSection(with news: [News])
+    func appendNewsSection(with news: [Article])
 }
 
 class HomeTableViewCellBuilder: HomeTableViewCellBuilderProtocol {
@@ -19,7 +19,7 @@ class HomeTableViewCellBuilder: HomeTableViewCellBuilderProtocol {
     
     // MARK: - Sections
     
-    func appendNewsSection(with news: [News]) {
+    func appendNewsSection(with news: [Article]) {
         let items = news.map {
             NewsCellViewModel(title: $0.title, description: $0.description, author: $0.author, urlToImage: $0.urlToImage)
         }

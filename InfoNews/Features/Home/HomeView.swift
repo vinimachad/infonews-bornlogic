@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol HomeViewModelProtocol {
-    var onChangeSections: Completion<[TableSectionProtocol]>? { get set }
+    var onChangeSections: Completion<[TableSectionProtocol]> { get set }
 }
 
 class HomeView: UIView {
