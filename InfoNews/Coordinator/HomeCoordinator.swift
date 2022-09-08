@@ -25,7 +25,7 @@ class HomeCoordinator: CoordinatorProtocol {
     // MARK: - Start
     
     func start() -> UIViewController {
-        let vc = UIViewController()
+        let vc = HomeFactory.createController()
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([vc], animated: true)
         return navigationController
