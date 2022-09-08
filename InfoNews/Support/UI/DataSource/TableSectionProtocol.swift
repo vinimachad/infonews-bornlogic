@@ -25,6 +25,4 @@ protocol CellProtocol {
     func bindIn(viewModel: ViewModel)
 }
 
-protocol CellViewModelProtocol {
-    var cellIdentifier: String { get }
-}
+protocol CellViewModelProtocol {}

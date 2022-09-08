@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol HomeViewModelProtocol {}
+protocol HomeViewModelProtocol {
+    var onChangeSections: Completion<[TableSectionProtocol]>? { get set }
+}
 
 class HomeView: UIView {
     
@@ -20,6 +22,7 @@ class HomeView: UIView {
     // MARK: - Private properties
     
     private var viewModel: HomeViewModelProtocol?
+    private var tableViewDataSource = TableViewDataSource()
     
     // MARK: Init
     
@@ -37,6 +40,10 @@ class HomeView: UIView {
     
     func bindIn(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
+        
+        self.viewModel?.onChangeSections = { [weak self] sections in
+            self?.tableViewDataSource.sections = sections
+        }
     }
 }
 
@@ -46,7 +53,11 @@ extension HomeView {
     
     private func setup() {
         setupConstraints()
-        tableView.backgroundColor = .red
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableViewDataSource.tableView = tableView
     }
 }
 
