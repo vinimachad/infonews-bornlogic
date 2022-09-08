@@ -46,6 +46,8 @@
 		3CBDAD1A28CA800900094AAC /* HomeControllerDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDAD1928CA800900094AAC /* HomeControllerDelegateMock.swift */; };
 		3CBDAD1E28CA811A00094AAC /* Article+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDAD1D28CA811A00094AAC /* Article+Mock.swift */; };
 		3CBDAD2028CA81BE00094AAC /* GetNewsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDAD1F28CA81BE00094AAC /* GetNewsUseCaseMock.swift */; };
+		3CBDAD2228CA85F300094AAC /* HomeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDAD2128CA85F300094AAC /* HomeFactoryTests.swift */; };
+		3CBDAD2528CA86D700094AAC /* HomeTableViewCellBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDAD2428CA86D700094AAC /* HomeTableViewCellBuilderTests.swift */; };
 		CDE50F7B1725B78DCB715727 /* Pods_InfoNews_InfoNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4529FA2A78AFD9184ADF845A /* Pods_InfoNews_InfoNewsUITests.framework */; };
 		FA251733B5024C00CB3A4C40 /* Pods_InfoNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DF2DA83502F56969F71BD9 /* Pods_InfoNewsTests.framework */; };
 /* End PBXBuildFile section */
@@ -114,6 +116,8 @@
 		3CBDAD1928CA800900094AAC /* HomeControllerDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerDelegateMock.swift; sourceTree = "<group>"; };
 		3CBDAD1D28CA811A00094AAC /* Article+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+Mock.swift"; sourceTree = "<group>"; };
 		3CBDAD1F28CA81BE00094AAC /* GetNewsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsUseCaseMock.swift; sourceTree = "<group>"; };
+		3CBDAD2128CA85F300094AAC /* HomeFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactoryTests.swift; sourceTree = "<group>"; };
+		3CBDAD2428CA86D700094AAC /* HomeTableViewCellBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellBuilderTests.swift; sourceTree = "<group>"; };
 		4529FA2A78AFD9184ADF845A /* Pods_InfoNews_InfoNewsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfoNews_InfoNewsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		708CA366419B48259A331042 /* Pods-InfoNews-InfoNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoNews-InfoNewsUITests.release.xcconfig"; path = "Target Support Files/Pods-InfoNews-InfoNewsUITests/Pods-InfoNews-InfoNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DF2DA83502F56969F71BD9 /* Pods_InfoNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfoNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,9 +430,11 @@
 		3CBDAD1128CA7F0F00094AAC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3CBDAD2328CA86C100094AAC /* Builder */,
 				3CBDAD1628CA7F8800094AAC /* Mocks */,
 				3CBDAD1228CA7F1700094AAC /* HomeControllerTests.swift */,
 				3CBDAD1428CA7F1E00094AAC /* HomeViewModelTests.swift */,
+				3CBDAD2128CA85F300094AAC /* HomeFactoryTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -442,6 +448,14 @@
 				3CBDAD1F28CA81BE00094AAC /* GetNewsUseCaseMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3CBDAD2328CA86C100094AAC /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				3CBDAD2428CA86D700094AAC /* HomeTableViewCellBuilderTests.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		509072560FAD2B2B534EF8B6 /* Frameworks */ = {
@@ -728,12 +742,14 @@
 			files = (
 				3CBDAD0D28CA7DBB00094AAC /* AppCoordinatorTests.swift in Sources */,
 				3CBDAD1E28CA811A00094AAC /* Article+Mock.swift in Sources */,
+				3CBDAD2528CA86D700094AAC /* HomeTableViewCellBuilderTests.swift in Sources */,
 				3CBDAD1828CA7F9100094AAC /* HomeViewModelMock.swift in Sources */,
 				3CBDAD2028CA81BE00094AAC /* GetNewsUseCaseMock.swift in Sources */,
 				3CBDAD1A28CA800900094AAC /* HomeControllerDelegateMock.swift in Sources */,
 				3CBDAD1028CA7E2600094AAC /* HomeCoordinatorTests.swift in Sources */,
 				3CBDAD1328CA7F1700094AAC /* HomeControllerTests.swift in Sources */,
 				3CBDAD1528CA7F1E00094AAC /* HomeViewModelTests.swift in Sources */,
+				3CBDAD2228CA85F300094AAC /* HomeFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
