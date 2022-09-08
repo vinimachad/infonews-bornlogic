@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol TableSectionDelegate: AnyObject {
-    func didSelect(at: Int)
+    func didSelect(at: Int, item: CellViewModelProtocol)
 }
 
 class TableSection<T: UITableViewCell & CellProtocol>: TableSectionProtocol {
@@ -45,7 +45,8 @@ class TableSection<T: UITableViewCell & CellProtocol>: TableSectionProtocol {
     }
     
     func didSelect(at: Int) {
-        delegate?.didSelect(at: at)
+        guard let item = viewModels[at] as? CellViewModelProtocol else { return }
+        delegate?.didSelect(at: at,item: item)
     }
 }
 
@@ -53,5 +54,5 @@ class TableSection<T: UITableViewCell & CellProtocol>: TableSectionProtocol {
 
 extension TableSectionDelegate {
     
-    func didSelect(at: Int) { }
+    func didSelect(at: Int, item: CellViewModelProtocol) { }
 }

@@ -6,9 +6,11 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
+
+protocol HomeControllerDelegate: ControllerDelegate {
+    func pushArticleDetails(with article: Article)
+}
 
 class HomeController<ViewModel: HomeProtocol>: UIViewController {
     
@@ -16,11 +18,13 @@ class HomeController<ViewModel: HomeProtocol>: UIViewController {
     
     private let contentView: HomeView
     private var viewModel: ViewModel
+    private weak var delegate: HomeControllerDelegate?
     
     // MARK: - Init
     
-    init(viewModel: ViewModel) {
+    init(viewModel: ViewModel, delegate: HomeControllerDelegate?) {
         self.viewModel = viewModel
+        self.delegate = delegate
         contentView = HomeView()
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,5 +54,9 @@ extension HomeController {
     
     private func bind() {
         contentView.bindIn(viewModel: viewModel)
+
+        viewModel.onTapArticle = { [weak self] article in
+            self?.delegate?.pushArticleDetails(with: article)
+        }
     }
 }

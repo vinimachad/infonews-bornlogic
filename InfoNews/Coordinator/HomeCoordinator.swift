@@ -25,9 +25,19 @@ class HomeCoordinator: CoordinatorProtocol {
     // MARK: - Start
     
     func start() -> UIViewController {
-        let vc = HomeFactory.createController()
+        let vc = HomeFactory.createController(delegate: self)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([vc], animated: true)
         return navigationController
+    }
+}
+
+extension HomeCoordinator: HomeControllerDelegate {
+    
+    func pushArticleDetails(with article: Article) {
+        print(article)
+        let controller = UIViewController()
+        controller.view.backgroundColor = .red
+        navigationController.pushViewController(controller, animated: true)
     }
 }

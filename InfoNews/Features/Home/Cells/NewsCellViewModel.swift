@@ -12,4 +12,9 @@ struct NewsCellViewModel: NewsCellViewModelProtocol {
     var description: String
     var author: String?
     var urlToImage: String
+    var onSelect: Completion<Article>
+    
+    func didSelect(article: Article) {
+        onSelect?(article)
+    }
 }

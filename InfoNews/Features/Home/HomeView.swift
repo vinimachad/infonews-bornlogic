@@ -58,6 +58,7 @@ extension HomeView {
     
     private func setupTableView() {
         tableViewDataSource.tableView = tableView
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 150, bottom: 0, right: 0)
     }
 }
 

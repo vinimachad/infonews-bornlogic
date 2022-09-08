@@ -14,6 +14,7 @@ protocol NewsCellViewModelProtocol: CellViewModelProtocol {
     var description: String { get }
     var author: String? { get }
     var urlToImage: String { get }
+    func didSelect(article: Article)
 }
 
 class NewsCell: UITableViewCell, CellProtocol {
@@ -63,6 +64,7 @@ extension NewsCell {
         setupTitleLabel()
         setupResumeLabel()
         setupAuthorsLabel()
+        selectionStyle = .none
     }
     
     private func setupCoverImageView() {

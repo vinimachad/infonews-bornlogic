@@ -10,9 +10,9 @@ import UIKit
 
 enum HomeFactory: ControllerFactoryProtocol {
     
-    static func createController() -> UIViewController {
+    static func createController(delegate: HomeControllerDelegate?) -> UIViewController {
         let useCase = GetNewsUseCase(api: NewsRoute())
         let viewModel = HomeViewModel(getNewsUseCase: useCase)
-        return HomeController(viewModel: viewModel)
+        return HomeController(viewModel: viewModel, delegate: delegate)
     }
 }

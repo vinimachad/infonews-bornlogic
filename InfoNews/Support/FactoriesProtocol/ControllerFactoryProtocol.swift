@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+protocol ControllerDelegate: AnyObject { }
+
 protocol ControllerFactoryProtocol {
-    static func createController() -> UIViewController
+    associatedtype Delegate = ControllerDelegate
+    static func createController(delegate: Delegate?) -> UIViewController
 }
