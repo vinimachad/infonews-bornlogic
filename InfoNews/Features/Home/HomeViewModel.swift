@@ -10,6 +10,7 @@ import Foundation
 
 protocol HomeProtocol: HomeViewModelProtocol {
     var onTapArticle: ((Article) -> Void)? { get set }
+    var onFailureGetNews: ((String) -> Void)? { get set }
     func getNewsRequest()
 }
 
@@ -18,6 +19,7 @@ class HomeViewModel {
     // MARK: - Public properties
     
     var onChangeSections: (([TableSectionProtocol]) -> Void)?
+    var onFailureGetNews: ((String) -> Void)?
     var onTapArticle: ((Article) -> Void)?
     
     // MARK: - Private properties
@@ -35,7 +37,6 @@ class HomeViewModel {
     private func didSelectArticle(_ article: Article) {
         onTapArticle?(article)
     }
-    
 }
 
 // MARK: - HomeProtocol
@@ -43,6 +44,7 @@ class HomeViewModel {
 extension HomeViewModel: HomeProtocol {    
     
     func getNewsRequest() {
+        
         getNewsUseCase.execute(
             success: { [weak self] news in
                 self?.articles = news.articles
@@ -54,7 +56,7 @@ extension HomeViewModel: HomeProtocol {
                 self?.onChangeSections?(self?.sectionBuilder.builder() ?? [])
             },
             failure: { [weak self] error in
-                print(error)
+                self?.onFailureGetNews?(error.localizedDescription)
             }
         )
     }
