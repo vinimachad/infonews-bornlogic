@@ -48,6 +48,7 @@ class NewsCell: UITableViewCell, CellProtocol {
         titleLabel.text = viewModel.title
         resumeLabel.text = viewModel.description
         authorsLabel.text = "by \(viewModel.author)"
+        coverImageView.imageBy(urlString: viewModel.urlToImage)
     }
 }
 
@@ -64,14 +65,6 @@ extension NewsCell {
     }
     
     private func setupCoverImageView() {
-        let url = URL(string: "https://ichef.bbci.co.uk/news/1024/branded_news/F67B/production/_126599036_gettyimages-1418979612.jpg")
-
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                self.coverImageView.image = UIImage(data: data!)
-            }
-        }
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.clipsToBounds = true
     }
