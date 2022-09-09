@@ -36,6 +36,7 @@ class HomeViewModel {
     
     private func didSelectArticle(_ article: Article) {
         onTapArticle?(article)
+        NotificationCenter.default.post(name: Notification.Name("article"), object: article)
     }
 }
 

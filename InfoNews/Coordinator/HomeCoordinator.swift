@@ -35,8 +35,7 @@ class HomeCoordinator: CoordinatorProtocol {
 extension HomeCoordinator: HomeControllerDelegate {
     
     func pushArticleDetails(with article: Article) {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .red
+        let controller = ArticleDetailsFactory.createController(delegate: nil)
         navigationController.pushViewController(controller, animated: true)
     }
 }
