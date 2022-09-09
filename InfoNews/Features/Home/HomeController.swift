@@ -41,10 +41,14 @@ class HomeController<ViewModel: HomeProtocol>: UIViewController {
         view = contentView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getNewsRequest()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        viewModel.getNewsRequest()
     }
 }
 

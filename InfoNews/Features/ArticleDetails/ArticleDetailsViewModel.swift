@@ -8,11 +8,9 @@
 import Foundation
 
 
-protocol ArticleDetailsProtocol: ArticleDetailsViewModelProtocol {
-    
-}
+protocol ArticleDetailsProtocol: ArticleDetailsViewModelProtocol {}
 
-class ArticleDetailsViewModel: ArticleObserver {
+class ArticleDetailsViewModel: ArticleDetailsProtocol, ArticleObserver {
     
     // MARK: - Public properties
     
@@ -21,13 +19,11 @@ class ArticleDetailsViewModel: ArticleObserver {
     var content: String?
     var publishedFormattedDate: String?
     
-    // MARK: - Private properties
-    
     // MARK: - Init
     
-    init() {
-        observeArticle(#selector(didUpdateValues))
-    }
+    init() { observeArticle(#selector(didUpdateValues)) }
+    
+    // MARK: - Updates
     
     @objc private func didUpdateValues(notification: NSNotification) {
         guard let article = notification.object as? Article else { return }
@@ -36,10 +32,4 @@ class ArticleDetailsViewModel: ArticleObserver {
         content = article.content
         publishedFormattedDate = article.publishedAt.formatToDate()
     }
-}
-
-// MARK: - ArticleDetailsProtocol
-
-extension ArticleDetailsViewModel: ArticleDetailsProtocol {
-    
 }

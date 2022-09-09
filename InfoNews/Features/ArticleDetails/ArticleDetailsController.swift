@@ -39,13 +39,9 @@ class ArticleDetailsController<ViewModel: ArticleDetailsProtocol>: UIViewControl
         view = scrollView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        bind()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
 }
 
