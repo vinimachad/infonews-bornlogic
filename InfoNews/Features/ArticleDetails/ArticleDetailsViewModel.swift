@@ -12,7 +12,7 @@ protocol ArticleDetailsProtocol: ArticleDetailsViewModelProtocol {
     
 }
 
-class ArticleDetailsViewModel {
+class ArticleDetailsViewModel: ArticleObserver {
     
     // MARK: - Public properties
     
@@ -26,7 +26,7 @@ class ArticleDetailsViewModel {
     // MARK: - Init
     
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateValues), name: Notification.Name("article"), object: nil)
+        observeArticle(#selector(didUpdateValues))
     }
     
     @objc private func didUpdateValues(notification: NSNotification) {
