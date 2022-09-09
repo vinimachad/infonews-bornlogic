@@ -15,6 +15,9 @@
 		3C42361228CA4779002A6526 /* NewsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42361128CA4779002A6526 /* NewsRoute.swift */; };
 		3C42361528CA504C002A6526 /* GetNewsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42361428CA504C002A6526 /* GetNewsUseCase.swift */; };
 		3C42361828CA51A3002A6526 /* Data+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42361728CA51A3002A6526 /* Data+Decode.swift */; };
+		3C81939D28CAC0740027D887 /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C81939C28CAC0740027D887 /* TableViewDataSourceTests.swift */; };
+		3C8193A228CAC1560027D887 /* TableSectionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8193A128CAC1560027D887 /* TableSectionMock.swift */; };
+		3C8193A428CAC16A0027D887 /* TableViewCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8193A328CAC16A0027D887 /* TableViewCellMock.swift */; };
 		3C971CC528CA210600B1A1A0 /* ControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C971CC428CA210600B1A1A0 /* ControllerFactoryProtocol.swift */; };
 		3C971CC928CA231600B1A1A0 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C971CC828CA231600B1A1A0 /* TableViewDataSource.swift */; };
 		3C971CCB28CA235000B1A1A0 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C971CCA28CA235000B1A1A0 /* TableSection.swift */; };
@@ -81,6 +84,9 @@
 		3C42361128CA4779002A6526 /* NewsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRoute.swift; sourceTree = "<group>"; };
 		3C42361428CA504C002A6526 /* GetNewsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsUseCase.swift; sourceTree = "<group>"; };
 		3C42361728CA51A3002A6526 /* Data+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Decode.swift"; sourceTree = "<group>"; };
+		3C81939C28CAC0740027D887 /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
+		3C8193A128CAC1560027D887 /* TableSectionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionMock.swift; sourceTree = "<group>"; };
+		3C8193A328CAC16A0027D887 /* TableViewCellMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellMock.swift; sourceTree = "<group>"; };
 		3C971CC428CA210600B1A1A0 /* ControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactoryProtocol.swift; sourceTree = "<group>"; };
 		3C971CC828CA231600B1A1A0 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		3C971CCA28CA235000B1A1A0 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
@@ -199,6 +205,32 @@
 				3C42361728CA51A3002A6526 /* Data+Decode.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		3C81939A28CAC0520027D887 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3C81939B28CAC05F0027D887 /* DataSource */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3C81939B28CAC05F0027D887 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3C8193A028CAC14E0027D887 /* Mock */,
+				3C81939C28CAC0740027D887 /* TableViewDataSourceTests.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		3C8193A028CAC14E0027D887 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3C8193A128CAC1560027D887 /* TableSectionMock.swift */,
+				3C8193A328CAC16A0027D887 /* TableViewCellMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		3C971CC228CA20E500B1A1A0 /* Support */ = {
@@ -388,6 +420,7 @@
 		3CBDAD0928CA7D8600094AAC /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				3C81939A28CAC0520027D887 /* UI */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -741,9 +774,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CBDAD2A28CA886700094AAC /* NewsRouteMock.swift in Sources */,
+				3C8193A228CAC1560027D887 /* TableSectionMock.swift in Sources */,
 				3CBDAD0D28CA7DBB00094AAC /* AppCoordinatorTests.swift in Sources */,
 				3CBDAD1E28CA811A00094AAC /* Article+Mock.swift in Sources */,
 				3CBDAD2828CA882D00094AAC /* GetNewsUseCaseTests.swift in Sources */,
+				3C81939D28CAC0740027D887 /* TableViewDataSourceTests.swift in Sources */,
 				3CBDAD2528CA86D700094AAC /* HomeTableViewCellBuilderTests.swift in Sources */,
 				3CBDAD1828CA7F9100094AAC /* HomeViewModelMock.swift in Sources */,
 				3CBDAD2028CA81BE00094AAC /* GetNewsUseCaseMock.swift in Sources */,
@@ -752,6 +787,7 @@
 				3CBDAD1328CA7F1700094AAC /* HomeControllerTests.swift in Sources */,
 				3CBDAD1528CA7F1E00094AAC /* HomeViewModelTests.swift in Sources */,
 				3CBDAD2228CA85F300094AAC /* HomeFactoryTests.swift in Sources */,
+				3C8193A428CAC16A0027D887 /* TableViewCellMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

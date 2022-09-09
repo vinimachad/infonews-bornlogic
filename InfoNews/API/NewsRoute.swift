@@ -14,7 +14,7 @@ protocol NewsRouteProtocol {
 class NewsRoute {
     
     enum Target: APITargetProtocol {
-        case everything
+        case news
     }
     
     private var provider = APIProvider<Target>()
@@ -23,6 +23,6 @@ class NewsRoute {
 extension NewsRoute: NewsRouteProtocol {
     
     func getNews(completion: APIResult) {
-        provider.request(.everything, completion: completion)
+        provider.request(.news, completion: completion)
     }
 }

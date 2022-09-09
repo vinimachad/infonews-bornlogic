@@ -22,22 +22,6 @@ extension APITargetProtocol {
         return authorizationHeader()
     }
     
-    var defaultJSONEncoder: JSONEncoder {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        return encoder
-    }
-    
-    func jsonEncoder(dateFormat: String) -> JSONEncoder {
-        let encoder = defaultJSONEncoder
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
-        encoder.dateEncodingStrategy = .formatted(formatter)
-        
-        return encoder
-    }
-    
     private func authorizationHeader() -> [String: String] {
         
         return [
