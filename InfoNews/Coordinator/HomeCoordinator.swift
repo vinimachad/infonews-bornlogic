@@ -20,7 +20,7 @@ class HomeCoordinator: CoordinatorProtocol {
     
     // MARK: - Private properties
     
-    private var navigationController = UINavigationController()
+    private(set) var navigationController = UINavigationController()
     
     // MARK: - Start
     
@@ -34,9 +34,8 @@ class HomeCoordinator: CoordinatorProtocol {
 
 extension HomeCoordinator: HomeControllerDelegate {
     
-    func pushArticleDetails(with article: Article) {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .red
+    func pushArticleDetails() {
+        let controller = ArticleDetailsFactory.createController(delegate: nil)
         navigationController.pushViewController(controller, animated: true)
     }
 }

@@ -11,13 +11,15 @@ import Foundation
 extension Article {
     
     static func mock() -> Article {
-        Article(title: "Title", description: "Description", author: "Author", urlToImage: "UrlToImage")
+        Article(title: "teste", description: "description", author: "author", urlToImage: "urlToImage", publishedAt: "2022-09-09T17:44:18Z", content: "content")
     }
     
     static func toDictMock() -> [String: String] {
         ["title": "teste",
          "description": "description",
          "author": "author",
-         "urlToImage": "urlToImage"]
+         "urlToImage": "urlToImage",
+         "publishedAt": "2022-09-09T17:44:18Z"
+        ]
     }
 }

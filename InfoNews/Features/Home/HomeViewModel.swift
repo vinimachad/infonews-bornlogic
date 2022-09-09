@@ -9,18 +9,18 @@ import Foundation
 
 
 protocol HomeProtocol: HomeViewModelProtocol {
-    var onTapArticle: ((Article) -> Void)? { get set }
+    var onTapArticle: (() -> Void)? { get set }
     var onFailureGetNews: ((String) -> Void)? { get set }
     func getNewsRequest()
 }
 
-class HomeViewModel {
+class HomeViewModel: ArticleSender {
     
     // MARK: - Public properties
     
     var onChangeSections: (([TableSectionProtocol]) -> Void)?
     var onFailureGetNews: ((String) -> Void)?
-    var onTapArticle: ((Article) -> Void)?
+    var onTapArticle: (() -> Void)?
     
     // MARK: - Private properties
     
@@ -35,7 +35,8 @@ class HomeViewModel {
     }
     
     private func didSelectArticle(_ article: Article) {
-        onTapArticle?(article)
+        onTapArticle?()
+        sendArticle(article)
     }
 }
 

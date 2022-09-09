@@ -20,7 +20,8 @@ class GetNewsUseCaseTests: XCTestCase {
     }
     
     func test_execute_whenApiReturnSuccess_expectedAllValuesIsEqualToExpected() {
-        var expected = News(articles: [Article(title: "teste", description: "description", author: "author", urlToImage: "urlToImage")])
+        let expected = News(articles: [Article.mock()])
+        
         var news: News?
         
         let dictData = [
@@ -42,12 +43,12 @@ class GetNewsUseCaseTests: XCTestCase {
             },
             failure: nil
         )
-
+        
     }
     
     func test_execute_whenApiReturnFailure_expectedErrorMessageIsEqualToExpected() {
         var expected = NSError(domain: "Error", code: 0)
-    
+        
         apiMock.error = NSError(domain: "Error", code: 0)
         
         self.sut.execute(
@@ -56,6 +57,6 @@ class GetNewsUseCaseTests: XCTestCase {
                 XCTAssertEqual(message.localizedDescription, expected.localizedDescription)
             }
         )
-
+        
     }
 }

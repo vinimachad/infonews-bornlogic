@@ -23,8 +23,9 @@ class HomeCoordinatorTests: XCTestCase {
         XCTAssertTrue(result.topViewController is HomeController<HomeViewModel>)
     }
     
-    func test_pushArticleDetails_whenIsCalled_expectedChildCoordinatorIsEqualToFindYourLocationCoordinator() {
-        sut.pushArticleDetails(with: Article(title: "Title", description: "description", author: "author", urlToImage: "stringUrl"))
-//        XCTAssertTrue(sut.childCoordinator is ArticleDetailsCoordinator)
+    func test_pushArticleDetails_whenIsCalled_expectedChildCoordinatorIsEqualToArticleDetailsController() {
+        sut.pushArticleDetails()
+        let controller = sut.navigationController.topViewController
+        XCTAssertTrue(controller is ArticleDetailsController<ArticleDetailsViewModel>)
     }
 }

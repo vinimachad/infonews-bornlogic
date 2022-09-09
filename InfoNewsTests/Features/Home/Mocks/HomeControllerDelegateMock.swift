@@ -10,11 +10,10 @@ import Foundation
 
 class HomeControllerDelegateMock: HomeControllerDelegate {
     
-    var invokedPushArticleDetails = (article: Article.mock(), count: 0)
+    var invokedPushArticleDetailsCount = 0
     
-    func pushArticleDetails(with article: Article) {
-        invokedPushArticleDetails.article = article
-        invokedPushArticleDetails.count += 1
+    func pushArticleDetails() {
+        invokedPushArticleDetailsCount += 1
     }
 }
 

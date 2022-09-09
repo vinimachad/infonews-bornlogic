@@ -12,7 +12,8 @@ extension UIImageView {
     
     func imageBy(urlString: String) {
         guard let url = URL(string: urlString) else { return }
-
+        self.image = UIImage(named: "img-placeholder")
+        
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
             
