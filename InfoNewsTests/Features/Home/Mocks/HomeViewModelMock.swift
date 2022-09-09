@@ -12,7 +12,7 @@ class HomeViewModelMock: HomeProtocol {
     
     var invokedGetNewsRequestCount = 0
     
-    var onTapArticle: ((Article) -> Void)?
+    var onTapArticle: (() -> Void)?
     var onChangeSections: (([TableSectionProtocol]) -> Void)?
     var onFailureGetNews: ((String) -> Void)?
     

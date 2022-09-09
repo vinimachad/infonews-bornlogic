@@ -20,7 +20,7 @@ class HomeCoordinator: CoordinatorProtocol {
     
     // MARK: - Private properties
     
-    private var navigationController = UINavigationController()
+    private(set) var navigationController = UINavigationController()
     
     // MARK: - Start
     
