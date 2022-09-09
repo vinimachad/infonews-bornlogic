@@ -25,7 +25,7 @@ class GetNewsUseCaseTests: XCTestCase {
         
         let dictData = [
             "articles": [
-                Article.toDict()
+                Article.toDictMock()
             ],
         ]
         

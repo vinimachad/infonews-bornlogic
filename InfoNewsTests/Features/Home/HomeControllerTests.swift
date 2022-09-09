@@ -27,5 +27,10 @@ class HomeControllerTests: XCTestCase {
         _ = sut.view
         
     }
+    
+    func test_bind_whenViewModelInvokeOnTapArticle_expectedInvokePushArticleDetails() {
+        viewModelMock.onTapArticle?(Article.mock())
+        XCTAssertEqual(delegateMock.invokedPushArticleDetails.count, 1)
+    }
 }
 

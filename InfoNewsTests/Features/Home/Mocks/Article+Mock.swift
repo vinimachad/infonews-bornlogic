@@ -14,7 +14,7 @@ extension Article {
         Article(title: "Title", description: "Description", author: "Author", urlToImage: "UrlToImage")
     }
     
-    static func toDict() -> [String: String] {
+    static func toDictMock() -> [String: String] {
         ["title": "teste",
          "description": "description",
          "author": "author",
