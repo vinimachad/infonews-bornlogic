@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 
 class ArticleDetailsController<ViewModel: ArticleDetailsProtocol>: UIViewController {
