@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol HomeControllerDelegate: ControllerDelegate {
-    func pushArticleDetails(with article: Article)
+    func pushArticleDetails()
 }
 
 class HomeController<ViewModel: HomeProtocol>: UIViewController {
@@ -55,8 +55,8 @@ extension HomeController {
     private func bind() {
         contentView.bindIn(viewModel: viewModel)
 
-        viewModel.onTapArticle = { [weak self] article in
-            self?.delegate?.pushArticleDetails(with: article)
+        viewModel.onTapArticle = { [weak self] in
+            self?.delegate?.pushArticleDetails()
         }
     }
 }
