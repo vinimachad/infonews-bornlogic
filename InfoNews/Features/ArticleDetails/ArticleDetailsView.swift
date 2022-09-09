@@ -66,7 +66,7 @@ extension ArticleDetailsView {
         setupTitleLabel()
         setupPublishedDate()
         setupContentLabel()
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
     
     private func setupCoverImageView() {

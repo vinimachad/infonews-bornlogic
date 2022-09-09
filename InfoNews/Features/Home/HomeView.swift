@@ -54,6 +54,7 @@ extension HomeView {
     private func setup() {
         setupConstraints()
         setupTableView()
+        backgroundColor = .systemBackground
     }
     
     private func setupTableView() {

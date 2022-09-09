@@ -36,7 +36,6 @@ extension ScrollView {
     
     private func setup() {
         setupConstraints()
-        backgroundColor = .white
     }
 }
 
